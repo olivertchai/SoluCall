@@ -12,8 +12,8 @@ A SoluCall é um aplicativo que centraliza e otimiza a gestão de solicitações
 <img width="320" height="567" alt="Captura de tela de 2025-10-08 19-04-44" src="https://github.com/user-attachments/assets/e1e551af-13ba-4c5a-be07-11ed8780bc87" />
 
 ## Comandos necessários para executar o projeto
-### Instalando as dependências :$ yarn
+### Instalando as dependências :$ `yarn`
 
-### Iniciando o app :$ yarn web
+### Iniciando o app :$ `yarn web`
 
 
