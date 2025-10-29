@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Text, StyleSheet} from 'react-native'
 import { useLocalSearchParams } from "expo-router";
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ScreenWrapper from '../components/ScreenWrapper'
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import ScreenWrapper from '../../components/ScreenWrapper'
 
 export default function Dash() {
   const { id, title, description} = useLocalSearchParams();  

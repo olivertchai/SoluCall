@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { sobreEmpresa } from '../data/dataAbout';
+import { sobreEmpresa } from '../../data/dataAbout';
 
 export default function About() {
   return (

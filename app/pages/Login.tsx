@@ -4,10 +4,10 @@ import React from 'react'
 import { router,Stack } from "expo-router";
 
 
-import Title from '../components/Title'
-import FormInput from '../components/FormInput'
-import ButtonPost from '../components/ButtonPost'
-import ScreenWrapper from '../components/ScreenWrapper';
+import Title from '../../components/Title'
+import FormInput from '../../components/FormInput'
+import ButtonPost from '../../components/ButtonPost'
+import ScreenWrapper from '../../components/ScreenWrapper';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -18,7 +18,7 @@ export default function Login() {
   useEffect(() => {
     const isValid = email === "1wagnercamargo@gmail.com" && senha === "1234" ;
     setLoginIsValid(isValid);
-    },[email,senha]
+    },
   ); 
 
 

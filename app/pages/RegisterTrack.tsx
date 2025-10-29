@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState } from "react";
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { router, Stack } from "expo-router";
 
-import Title from '../components/Title';
-import FormInput from '../components/FormInput'
-import ButtonPost from '../components/ButtonPost';
-import ScreenWrapper from '../components/ScreenWrapper';
-import Footer from '../components/Footer';
+import Title from '../../components/Title';
+import FormInput from '../../components/FormInput'
+import ButtonPost from '../../components/ButtonPost';
+import ScreenWrapper from '../../components/ScreenWrapper';
+import Footer from '../../components/Footer';
 
 export default function RegisterTrack() {
   const [title, setTitle] = useState("");

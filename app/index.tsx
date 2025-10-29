@@ -1,10 +1,9 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
-import { Link ,Stack} from "expo-router";
+import { Stack} from "expo-router";
 
-import Login from '../app/pages/Login';
-import ScreenWrapper from './components/ScreenWrapper';
-export default function index() {
+import Login from './pages/Login';
+export default function Index() {
   return (
   <View>
     <Stack.Screen options={{ title: "Login" }} />
