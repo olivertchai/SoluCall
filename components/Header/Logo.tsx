@@ -9,7 +9,7 @@ export default function Logo() {
     <View style={styles.container}>
       <Image 
         style={styles.image}
-        source={require("../../assets/images/icon2.png")}
+        source={require("../../assets/images/icon.png")}
       />
 
       <Title c={"white"} fz={16} fw={"bold"}>Início</Title>

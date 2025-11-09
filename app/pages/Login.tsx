@@ -16,7 +16,7 @@ export default function Login() {
   const [loginIsValid, setLoginIsValid] = useState(false);
 
   useEffect(() => {
-    const isValid = email === "1wagnercamargo@gmail.com" && senha === "1234" ;
+    const isValid = email === "" && senha === "" ;
     setLoginIsValid(isValid);
     },
   ); 
