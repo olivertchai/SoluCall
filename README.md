@@ -1,15 +1,14 @@
-# Welcome to the SoluCall !
+# Bem vindo a SoluCall !
 
 ### Descrição : 
-A SoluCall é um aplicativo que centraliza e otimiza a gestão de solicitações e problemas, permitindo o registro, acompanhamento e resolução de chamados por meio de uma plataforma digital.
+A SoluCall é um aplicativo desenvolvido na matéria de progamação para dispositivos moveis possibilita a gestão de solicitações de problemas, permitindo o registro, acompanhamento e resolução de chamados por meio de uma plataforma digital.
+Tecnologias : Expo, Typescript, Firebase. 
 
-
-<img width="320" height="567" alt="Captura de tela de 2025-10-08 19-01-47" src="https://github.com/user-attachments/assets/17a5dcfb-e54b-4804-944e-f472c561c276" />
-
-<img width="320" height="567" alt="Captura de tela de 2025-10-08 19-04-11" src="https://github.com/user-attachments/assets/f94a1889-c8a6-41f5-8dad-f8da2a0cb576" />
-
-
-<img width="320" height="567" alt="Captura de tela de 2025-10-08 19-04-44" src="https://github.com/user-attachments/assets/e1e551af-13ba-4c5a-be07-11ed8780bc87" />
+<img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/f042ece3-afa2-4cc8-96c1-508e75e2d4c9" />
+<img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/babb8c40-44d0-4ce9-b877-f7ba8066d28a" />
+<img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/d8e1bb55-d551-4bf1-96b3-6dcac8d32a10" />
+<img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/d17dde27-1181-4bea-8ee4-c0c36af5713b" />
+<img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/3b42d102-f177-4584-84b5-637e90100355" />
 
 ## Comandos necessários para executar o projeto
 ### Você entrar apenas deixando os campos de Login vazios.
