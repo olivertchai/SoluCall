@@ -1,31 +1,31 @@
+// Import libraries
 import React from 'react'
 import { useState } from "react";
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Alert } from 'react-native'
 import { router, Stack } from "expo-router";
 
+// Import components
 import Title from '../../components/Title';
 import FormInput from '../../components/FormInput'
 import ButtonPost from '../../components/ButtonPost';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+
+import useCollection from "../../firebase/hooks/useCollection";
+import Track from '../../types/Track';
 
 export default function RegisterTrack() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleprofile = () =>{
-    router.push({
-      pathname: "/pages/Dash",
-      params:{
-        id:1,
-        title,
-        description
-      }
-    })
-  }  
+  const { data, create, remove, refreshData, loading } =
+  useCollection<Track>("Tracks");
+
 return (
     <ScreenWrapper>
       <Stack.Screen options={{ title: "Cadastro" }} />
+      <Header></Header>
       <View style={styles.container}>
         <View style={styles.formContainer}>
           <Title fz={24} c="black">Registre um problema</Title>
@@ -47,10 +47,21 @@ return (
           />
 
           <ButtonPost
-            c="black"
-            bg="#blue"
+            c="white"
+            bg="#2972CD"
             title="Registrar"
-            onPress={handleprofile}
+            onPress={async () => {
+              try {
+                await create({
+                  title,
+                  description               
+                });
+                await refreshData();
+              } catch (error: any) {
+                Alert.alert("Create Book error", error.toString());
+              }
+              router.push("./Dash");
+            }}
           />
         </View>
       </View>

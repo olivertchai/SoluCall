@@ -1,25 +1,37 @@
-import { View,StyleSheet} from 'react-native'
+// Import libraries
+import { View,StyleSheet,Alert} from 'react-native'
 import { useState ,useEffect} from "react";
 import React from 'react'
 import { router,Stack } from "expo-router";
 
-
+// Import components
 import Title from '../../components/Title'
 import FormInput from '../../components/FormInput'
 import ButtonPost from '../../components/ButtonPost'
 import ScreenWrapper from '../../components/ScreenWrapper';
+import Loading from "../../components/Loading";
+import { useModal } from "../../components/Modal/ModalProvider";
+
+
+//import Hooks
+import useAuth from '../../firebase/hooks/useAuth';
 
 export default function Login() {
+  const { user, login, loading } = useAuth();
+
   const [email, setEmail] = useState("");
-  const [senha , setSenha] = useState("");
+  const [password , setPassword] = useState("");
+//  const [loginIsValid, setLoginIsValid] = useState(false);
+  const modal = useModal();
 
-  const [loginIsValid, setLoginIsValid] = useState(false);
 
-  useEffect(() => {
-    const isValid = email === "" && senha === "" ;
-    setLoginIsValid(isValid);
-    },
-  ); 
+  // useEffect(() => {
+  //   const isValid = email === "fulano@example.com" && password === "123456" ;
+  //   setLoginIsValid(isValid);
+  //   },
+  // ); 
+
+  if (loading) return <Loading />;
 
 
   return (
@@ -31,18 +43,23 @@ export default function Login() {
                 
         <View style={styles.inputContainer}>
           <FormInput label="Email" value={email} onChangeText={setEmail} />
-          <FormInput label="Senha" value={senha} onChangeText={setSenha} secureTextEntry />
+          <FormInput label="password" value={password} onChangeText={setPassword} secureTextEntry />
 
         </View>
           <ButtonPost 
             c={"white"} 
             bg={"gray"} 
             title='Login' 
-            disabled = {!loginIsValid} 
-              onPress={() => {
-                router.push({
-                  pathname: "/pages/Dash",
-                });
+//            disabled = {!loginIsValid} 
+              onPress={async () => {
+                try {
+                  await login(email, password);
+                  router.push({
+                    pathname: "/pages/Dash",
+                  });
+                } catch (error: any) {
+                  modal.show("Login error");
+                }
               }}        
           >  
           </ButtonPost>

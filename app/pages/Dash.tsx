@@ -1,64 +1,65 @@
-import React from 'react'
-import { View, Text, StyleSheet} from 'react-native'
-import { useLocalSearchParams } from "expo-router";
-
+// Import lib
+import React from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+// Import Components
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import ScreenWrapper from '../../components/ScreenWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper';
+import ViewTrack from '@/components/ViewTrack';
+import useCollection from '@/firebase/hooks/useCollection';
+import Track from '@/types/Track';
+import Loading from '@/components/Loading';
+import { Stack } from 'expo-router';
 
 export default function Dash() {
-  const { id, title, description} = useLocalSearchParams();  
+  // O código do componente em si está correto e utiliza os hooks do Firebase
+  const { data, remove, refreshData, loading } = useCollection<Track>('Tracks');
 
   return (
     <ScreenWrapper>
-      <Header></Header> 
-       
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <Text style={styles.id}>ID: {id} </Text>
-          <Text style={styles.titulo}>Título: {title} </Text>
-          <Text style={styles.descricao}>Descrição: {description}</Text>
-        </View>
+      <Stack.Screen options={{
+        title:"Dash"
+      }}/>
+      <Header />
+
+      <View style={styles.listContainer}>
+        {loading ? (
+          <Loading />
+        ) : (
+          <FlatList
+            data={data}
+            renderItem={({ item }) => (
+              <ViewTrack
+                track={item}
+                onDelete={async () => {
+                  await remove(item.id!);
+                  await refreshData();
+                }}
+              />
+            )}
+            keyExtractor={(item) => item.id!}
+            // Adicionado contentContainerStyle para aplicar padding interno à lista
+            contentContainerStyle={styles.listContent}
+          />
+        )}
       </View>
 
-      <Footer></Footer>
+      <Footer />
     </ScreenWrapper>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#f5f5f5',
-    },
-  row: {
-    flexDirection: 'row',
-    padding: 10,
-    marginBottom: 10,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 3,
-  },    
-  id: {
-    flex: 1,
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#333',
+  listContainer: {
+    flex: 1, // ⬅️ CRUCIAL: Garante que o FlatList ocupe todo o espaço.
+    backgroundColor: '#f5f5f5', // Fundo claro para o corpo da lista
   },
-  titulo: {
-    flex: 2,
-    fontSize: 16,
-    color: '#555',
+  
+  // listContent: Adiciona padding ao redor do conteúdo DA LISTA (FlatList).
+  listContent: {
+    paddingHorizontal: 20, // Padding lateral para o conteúdo da lista
+    paddingVertical: 10, // Padding superior/inferior para o conteúdo
+    flexGrow: 1, 
   },
-  descricao: {
-    flex: 3,
-    fontSize: 14,
-    color: '#777',
-  },  
 
 });
