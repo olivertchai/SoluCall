@@ -1,7 +1,7 @@
 # Bem vindo a SoluCall !
 
 ### Descrição : 
-A SoluCall é um aplicativo desenvolvido na matéria de progamação para dispositivos moveis possibilita a gestão de solicitações de problemas, permitindo o registro, acompanhamento e resolução de chamados por meio de uma plataforma digital.
+A SoluCall é um aplicativo desenvolvido como avaliação na matéria de progamação para dispositivos moveis que possibilita a gestão de solicitações de problemas, permitindo o registro, acompanhamento e resolução de chamados por meio de uma plataforma digital.
 Tecnologias : Expo, Typescript, Firebase. 
 
 <img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/f042ece3-afa2-4cc8-96c1-508e75e2d4c9" />
