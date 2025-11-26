@@ -10,10 +10,11 @@ Tecnologias : Expo, Typescript, Firebase.
 <img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/d17dde27-1181-4bea-8ee4-c0c36af5713b" />
 <img width="260" height="464" alt="image" src="https://github.com/user-attachments/assets/3b42d102-f177-4584-84b5-637e90100355" />
 
-## Comandos necessários para executar o projeto
-### Você entrar apenas deixando os campos de Login vazios.
+## Comandos necessários para executar o projeto:
 ### Instalando as dependências :$ `yarn`
-
 ### Iniciando o app :$ `yarn web`
+
+## Conectando com FireBase:
+### Você deve criar um BD no firebase e configurações de conexão no arquivo `firebase/config/firebaseCinfig.ts`. 
 
 
